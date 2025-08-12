@@ -1,0 +1,11 @@
+streamlit
+pandas
+python-dotenv
+pypdf
+pytesseract
+Pillow
+PyMuPDF
+python-docx
+requests
+chardet
+openpyxl
