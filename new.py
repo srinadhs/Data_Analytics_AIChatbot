@@ -13,8 +13,8 @@ import requests
 
 # ─── Load API Key ─────────────────────────────
 load_dotenv()
+import os
 API_KEY = os.getenv("OPENROUTER_API_KEY")
-
 # ─── LLM Query ────────────────────────────────
 def ask_llm(prompt, model="mistralai/mixtral-8x7b-instruct"):
     url = "https://openrouter.ai/api/v1/chat/completions"
@@ -25,7 +25,8 @@ def ask_llm(prompt, model="mistralai/mixtral-8x7b-instruct"):
         r.raise_for_status()
         return r.json()["choices"][0]["message"]["content"]
     except Exception as e:
-        return f"Hello!,Check your internet connection"
+        # Show full error instead of hiding it
+        return f"❌ API Request Failed: {str(e)}\n\nResponse: {getattr(e, 'response', None)}"
 
 # ─── File Readers ─────────────────────────────
 def read_pdf(file):
@@ -108,9 +109,9 @@ user_input = st.chat_input("Ask about your file...")
 if user_input:
     if df is not None:
         context = df.head().to_csv(index=False)
-        prompt = f"You ara a professional data analyst ai chatbot created by sreenadh s sample project using  openrouter API. intoduce yourself first. Here is sample data:\n{context}\n\nQuestion: {user_input}"
+        prompt = f"You are a professional data analyst AI chatbot created by Sreenadh S sample project using OpenRouter API. Introduce yourself first. Here is sample data:\n{context}\n\nQuestion: {user_input}"
     else:
-        prompt = f"You ara a professional data analyst ai chatbot created by sreenadh s sample project using  openrouter API .introduce yourself first. Here is extracted text:\n{file_content}\n\nQuestion: {user_input}"
+        prompt = f"You are a professional data analyst AI chatbot created by Sreenadh S sample project using OpenRouter API. Introduce yourself first. Here is extracted text:\n{file_content}\n\nQuestion: {user_input}"
     answer = ask_llm(prompt)
     st.session_state.chat_history.append((user_input, answer))
     st.rerun()
