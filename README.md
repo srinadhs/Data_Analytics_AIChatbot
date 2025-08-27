@@ -1,44 +1,44 @@
-# 📊 AI Data Analytics Chatbot  
+# 📊 AI Data Analyst Chatbot  
 
-An **AI-powered data analytics assistant** that can **analyze datasets, generate insights, and create visualizations** based on natural language queries.  
-Upload your data (CSV, Excel, etc.), and simply ask questions like:  
-- *“Show me a bar chart of sales by region.”*  
-- *“What’s the correlation between revenue and ad spend?”*  
-- *“Summarize key trends in this dataset.”*  
-
-The chatbot uses **LLMs, LangChain, and visualization libraries** to automatically provide **answers, graphs, and dashboards**.  
+An **AI-powered data analyst chatbot** built with **Streamlit** and **OpenRouter API**.  
+This app lets you **upload files (CSV, Excel, PDF, DOCX, TXT)** and interact with them using **natural language queries**.  
+The chatbot can **analyze datasets, extract text, summarize content, and answer data-related questions**.  
 
 ---
 
 ## 🚀 Features  
-- 🗂️ Upload datasets (CSV, Excel, JSON).  
-- 💬 Chat with your data using **natural language queries**.  
-- 📈 Auto-generate charts (bar, line, pie, scatter, heatmaps).  
-- 📊 Statistical insights (correlation, regression, summary stats).  
-- ⚡ LLM-powered reasoning & explanations.  
-- 🌐 Deployable locally or on cloud (Streamlit/FastAPI).  
+- 🗂️ **Upload & parse multiple file formats**: CSV, Excel, PDF, DOCX, TXT  
+- 📄 **Extract text** from documents (including OCR for scanned PDFs)  
+- 📊 **Preview tabular data** in a dataframe  
+- 💬 **Chat with your file** using natural language  
+- ⚡ Powered by **OpenRouter LLMs** (default: `mistralai/mixtral-8x7b-instruct`)  
+- 🧠 Remembers **chat history** during the session  
 
 ---
 
 ## 🛠️ Tech Stack  
-- **Python** 🐍  
-- **LLMs**: Openrouter api
-- **LangChain** for RAG & query parsing  
-- **Pandas, NumPy** for data processing  
-- **Matplotlib, Plotly, Seaborn** for visualizations  
-- **Streamlit / Flask / FastAPI** for UI and deployment  
-- **Vector DB** (FAISS / Chroma / Pinecone) for knowledge retrieval  
+- **Frontend**: Streamlit  
+- **Backend**: Python  
+- **AI Models**: OpenRouter API (Mixtral, Mistral, LLaMA, GPT, etc.)  
+- **Libraries**:  
+  - `pandas` – data analysis  
+  - `pypdf`, `fitz`, `pytesseract`, `PIL` – PDF & OCR processing  
+  - `python-docx` – Word documents  
+  - `chardet` – encoding detection  
+  - `openpyxl` – Excel parsing  
+  - `dotenv` – API key management  
+  - `requests` – API calls  
 
 ---
 
 ## 📦 Installation  
 
 ```bash
-# Clone repo
-git clone https://github.com/srinadhs/ai-data-analytics-chatbot.git
-cd ai-data-analytics-chatbot
+# Clone the repository
+git clone https://github.com/srinadhs/ai-data-analyst-chatbot.git
+cd ai-data-analyst-chatbot
 
-# Create environment
+# Create a virtual environment
 python -m venv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
 
